@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+       <h3>Student Data</h3>
+       <a href="/">Create new Data</a>
+       <div>
+        <input type="text" placeholder="Search by name" name="search-input" id="search-input">
+        <button onclick="performSearch()">Search</button>
+       </div>
+       <table>
+        <thead>
+            <th>Student_id</th>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% if (result.length > 0) { %>
+              <% result.map(eachData => { %>
+                <tr>
+                  <td><%- eachData.student_id %></td>
+                  <td><%- eachData.name %></td>
+                  <td><%- eachData.branch %></td>
+                  <td><a href="/update-data?id=<%- eachData.student_id %>">Edit</a></td>
+                  <td><a href="/deletedata?student_id=<%- eachData.student_id %>">Delete</a></td>
+                </tr>
+              <% }); %>
+            <% } else { %>
+              <tr>
+                <td colspan="5">No data available</td>
+              </tr>
+            <% } %>
+          </tbody>
+          </table>
+        </table>
+      </div>
+      <script>
+        function performSearch()
+        {
+          const searchInput=document.getElementById('search-input').value;
+          window.location.href='/search-data?search='+searchInput;
+        }
+      </script>
+</body>
+</html>

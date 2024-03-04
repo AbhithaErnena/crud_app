@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="/data">Back</a>
+        <form action="http://localhost:3000/final-update" method="post">
+            <div>
+                <label>Student id</label>
+                <input type="text" name="student_id" placeholder="Enter id" value="<%- result.student_id %>" required>
+            </div>
+            <div>
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Enter name" value="<%- result.name %>" required>
+            </div>
+            <div>
+                <label>Branch</label>
+                <input type="text" name="branch" placeholder="Enter branch" value="<%- result.branch %>" required>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>

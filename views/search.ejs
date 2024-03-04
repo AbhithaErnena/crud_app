@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h3>Search data</h3>
+        <a href="/data">Back</a>
+        <table>
+            <thead>
+                <th>Student_id</th>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                <% if(result.length>0){ %>
+                    <% result.map(eachData=>{%>
+                        <tr>
+                            <td><%- eachData.student_id %></td>
+                            <td><%- eachData.name %></td>
+                            <td><%- eachData.branch %></td>
+                            <td><a href="/update-data?id=<%- eachData.student_id %>">Edit</a></td>
+                            <td><a href="/deletedata?student_id=<%- eachData.student_id %>">Delete</a></td>
+                        </tr>
+                     <% }) %>
+                <% }else{ %> 
+                    <tr>
+                        <td colspan="5">No Data Found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
